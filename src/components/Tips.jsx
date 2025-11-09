@@ -1,180 +1,97 @@
-import { useEffect, useRef, useState } from 'react';
-
 export default function Tips() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   const tips = [
     {
-      emoji: '☀️',
-      title: 'Start Your Day with Prayer',
-      description: 'Before entering the parks, gather as a family to pray and set intentions for the day.'
+      icon: '🌅',
+      title: 'Start Slow',
+      description: 'Skip rope drop and enjoy a peaceful morning devotional before heading to the parks.'
     },
     {
-      emoji: '🎢',
-      title: 'Choose Quality Over Quantity',
-      description: 'Pick 2-3 must-do attractions instead of trying to ride everything. Enjoy the experience fully.'
+      icon: '⏸️',
+      title: 'Build in Breaks',
+      description: 'Schedule downtime for pool days, resort exploration, or simply resting together.'
     },
     {
-      emoji: '🍦',
-      title: 'Build in Rest Time',
-      description: 'Schedule afternoon breaks at the hotel or find quiet spots in the parks to recharge.'
+      icon: '❤️',
+      title: 'Practice Patience',
+      description: 'Long lines become opportunities to practice kindness, patience, and conversation.'
     },
     {
-      emoji: '💬',
-      title: 'Use Wait Times for Connection',
-      description: 'Lines are opportunities for conversation, games, and building memories together.'
+      icon: '📖',
+      title: 'Evening Reflections',
+      description: 'End each day sharing what you\'re grateful for and where you saw God at work.'
     }
   ];
 
   return (
-    <section 
-      id="tips"
-      ref={sectionRef}
-      style={{
-        padding: '4rem 2rem',
-        background: 'linear-gradient(135deg, #e0f2fe 0%, #fce7f3 100%)'
-      }}
-    >
-      <style>
-        {`
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(40px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          @keyframes slideInFromLeft {
-            from {
-              opacity: 0;
-              transform: translateX(-50px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-
-          .tips-title {
-            animation: ${isVisible ? 'fadeInUp' : 'none'} 0.8s ease-out both;
-          }
-
-          .tip-item {
-            transition: all 0.3s ease;
-          }
-
-          .tip-item:hover {
-            transform: translateX(10px);
-            background: white !important;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15) !important;
-          }
-
-          .tip-emoji {
-            transition: transform 0.3s ease;
-          }
-
-          .tip-item:hover .tip-emoji {
-            transform: scale(1.3) rotate(10deg);
-          }
-
-          .tip-item:nth-child(1) {
-            animation: ${isVisible ? 'slideInFromLeft' : 'none'} 0.6s ease-out 0.2s both;
-          }
-
-          .tip-item:nth-child(2) {
-            animation: ${isVisible ? 'slideInFromLeft' : 'none'} 0.6s ease-out 0.4s both;
-          }
-
-          .tip-item:nth-child(3) {
-            animation: ${isVisible ? 'slideInFromLeft' : 'none'} 0.6s ease-out 0.6s both;
-          }
-
-          .tip-item:nth-child(4) {
-            animation: ${isVisible ? 'slideInFromLeft' : 'none'} 0.6s ease-out 0.8s both;
-          }
-        `}
-      </style>
+    <section id="tips" style={{
+      padding: '4rem 2rem',
+      background: 'linear-gradient(135deg, #ddd6fe 0%, #fbcfe8 100%)'
+    }}>
       <div style={{
-        maxWidth: '900px',
-        margin: '0 auto'
+        maxWidth: '1200px',
+        margin: '0 auto',
+        textAlign: 'center'
       }}>
-        <h2 className="tips-title" style={{
+        <h2 style={{
           fontSize: '2.5rem',
-          textAlign: 'center',
           color: '#5b21b6',
-          marginBottom: '3rem'
+          marginBottom: '1.5rem'
         }}>
-          Practical Tips to Get Started
+          Practical Tips & Guides
         </h2>
+        <p style={{
+          fontSize: '1.2rem',
+          color: '#6b7280',
+          marginBottom: '2rem',
+          maxWidth: '700px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          Ready to transform your Disney experience? Here are some ways we approach our trips with purpose and peace.
+        </p>
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1.5rem'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '1.5rem',
+          marginTop: '2rem'
         }}>
           {tips.map((tip, index) => (
-            <div
-              key={index}
-              className="tip-item"
-              style={{
-                display: 'flex',
-                gap: '1.5rem',
-                padding: '2rem',
-                background: 'rgba(255, 255, 255, 0.6)',
-                borderRadius: '15px',
-                alignItems: 'flex-start',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
-              }}
-            >
-              <div className="tip-emoji" style={{
-                fontSize: '3rem',
-                flexShrink: 0
+            <div key={index} style={{
+              background: 'white',
+              padding: '2rem',
+              borderRadius: '15px',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.08)'
+            }}>
+              <h4 style={{
+                color: '#7c3aed',
+                fontSize: '1.3rem',
+                marginBottom: '0.5rem'
               }}>
-                {tip.emoji}
-              </div>
-              <div>
-                <h3 style={{
-                  fontSize: '1.3rem',
-                  color: '#7c3aed',
-                  marginBottom: '0.5rem'
-                }}>
-                  {tip.title}
-                </h3>
-                <p style={{
-                  color: '#6b7280',
-                  lineHeight: 1.6
-                }}>
-                  {tip.description}
-                </p>
-              </div>
+                {tip.icon} {tip.title}
+              </h4>
+              <p style={{
+                color: '#6b7280',
+                fontSize: '1rem'
+              }}>
+                {tip.description}
+              </p>
             </div>
           ))}
         </div>
+        <a href="#blog" style={{
+          display: 'inline-block',
+          background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
+          color: 'white',
+          padding: '1rem 2.5rem',
+          borderRadius: '50px',
+          textDecoration: 'none',
+          fontWeight: 600,
+          fontSize: '1.1rem',
+          boxShadow: '0 4px 15px rgba(124, 58, 237, 0.3)',
+          marginTop: '2rem'
+        }}>
+          Read More Tips
+        </a>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Navigation() {
   return (
     <nav style={{
@@ -15,16 +17,17 @@ export default function Navigation() {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <div style={{
+        <Link to="/" style={{
           fontSize: '1.5rem',
           fontWeight: 'bold',
           background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
+          backgroundClip: 'text',
+          textDecoration: 'none'
         }}>
           Disney on Purpose
-        </div>
+        </Link>
         <ul style={{
           display: 'flex',
           listStyle: 'none',
@@ -32,11 +35,11 @@ export default function Navigation() {
           margin: 0,
           padding: 0
         }}>
-          <li><a href="#home" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Home</a></li>
-          <li><a href="#about" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Our Story</a></li>
-          <li><a href="#tips" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Tips & Guides</a></li>
-          <li><a href="#blog" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Blog</a></li>
-          <li><a href="#connect" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Connect</a></li>
+          <li><Link to="/" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Home</Link></li>
+          <li><Link to="/testimonies" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Testimonies</Link></li>
+          <li><a href="/#about" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Our Story</a></li>
+          <li><a href="/#tips" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Tips & Guides</a></li>
+          <li><a href="/#connect" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Connect</a></li>
         </ul>
       </div>
     </nav>

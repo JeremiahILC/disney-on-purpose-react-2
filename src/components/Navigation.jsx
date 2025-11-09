@@ -60,7 +60,6 @@ export default function Navigation() {
         className="desktop-menu">
           <li><Link to="/" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Home</Link></li>
           <li><Link to="/testimonies" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Testimonies</Link></li>
-          <li><Link to="/intralife" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Intralife</Link></li>
           <li><a href="/#about" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Our Story</a></li>
           <li><a href="/#tips" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Tips & Guides</a></li>
           <li><a href="/#connect" style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500 }}>Connect</a></li>
@@ -90,13 +89,6 @@ export default function Navigation() {
             style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500, padding: '0.5rem 0' }}
           >
             Testimonies
-          </Link>
-          <Link 
-            to="/intralife" 
-            onClick={() => setIsMenuOpen(false)}
-            style={{ textDecoration: 'none', color: '#6b7280', fontWeight: 500, padding: '0.5rem 0' }}
-          >
-            Intralife
           </Link>
           <a 
             href="/#about" 

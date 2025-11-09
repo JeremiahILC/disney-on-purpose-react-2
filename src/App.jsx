@@ -3,7 +3,6 @@ import Fireworks from './components/Fireworks'
 import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
 import TestimoniesPage from './components/TestimoniesPage'
-import IntralifePage from './components/IntralifePage'
 import Footer from './components/Footer'
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/testimonies" element={<TestimoniesPage />} />
-          <Route path="/intralife" element={<IntralifePage />} />
         </Routes>
         <Footer />
       </div>

@@ -12,8 +12,19 @@ function App() {
     <div style={{
       fontFamily: 'Georgia, serif',
       lineHeight: 1.6,
-      color: '#4a5568'
+      color: '#4a5568',
+      opacity: 0,
+      animation: 'fadeIn 2.5s ease-in forwards'
     }}>
+      <style>
+        {`
+          @keyframes fadeIn {
+            to {
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
       <Fireworks />
       <Navigation />
       <Hero />

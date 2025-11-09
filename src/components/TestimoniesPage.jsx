@@ -26,34 +26,86 @@ export default function TestimoniesPage() {
 
   return (
     <div>
+      <style>
+        {`
+          .testimony-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+          }
+
+          .testimony-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+          }
+
+          .testimony-text {
+            padding: 2rem 1.5rem;
+          }
+
+          .page-hero-title {
+            font-size: 2.5rem;
+          }
+
+          @media (min-width: 769px) {
+            .testimony-grid {
+              grid-template-columns: 1fr 1fr !important;
+              gap: 3rem !important;
+            }
+
+            .testimony-image {
+              height: 500px !important;
+            }
+
+            .testimony-text {
+              padding: 3rem !important;
+            }
+
+            .page-hero-title {
+              font-size: 3rem !important;
+            }
+
+            .testimonies-section {
+              padding: 4rem 2rem !important;
+            }
+
+            .cta-section {
+              padding: 4rem 2rem !important;
+            }
+          }
+        `}
+      </style>
+
       {/* Page Hero */}
       <section style={{
         background: 'linear-gradient(135deg, #ddd6fe 0%, #fce7f3 100%)',
-        padding: '4rem 2rem',
+        padding: '3rem 1.5rem',
         textAlign: 'center'
       }}>
-        <h1 style={{
-          fontSize: '3rem',
+        <h1 className="page-hero-title" style={{
           color: '#5b21b6',
           marginBottom: '1rem'
         }}>
           Family Testimonies
         </h1>
         <p style={{
-          fontSize: '1.2rem',
+          fontSize: '1.1rem',
           color: '#6b7280',
           maxWidth: '700px',
-          margin: '0 auto'
+          margin: '0 auto',
+          padding: '0 1rem'
         }}>
           Real families sharing how they've experienced Disney with rest, intention, and faith at the center.
         </p>
       </section>
 
       {/* Testimonies */}
-      <section style={{
+      <section className="testimonies-section" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '4rem 2rem'
+        padding: '3rem 1.5rem'
       }}>
         {testimonies.map((testimony, index) => (
           <div key={testimony.id} style={{
@@ -61,21 +113,15 @@ export default function TestimoniesPage() {
             borderRadius: '20px',
             overflow: 'hidden',
             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-            marginBottom: '4rem'
+            marginBottom: '3rem'
           }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '3rem',
-              alignItems: 'center',
-              flexDirection: index % 2 === 1 ? 'row-reverse' : 'row'
-            }}>
-              <div style={{
-                width: '100%',
-                height: '500px',
-                overflow: 'hidden',
-                order: index % 2 === 1 ? 2 : 1
-              }}>
+            <div className="testimony-grid">
+              <div 
+                className="testimony-image"
+                style={{
+                  order: index % 2 === 1 ? 2 : 1
+                }}
+              >
                 <img 
                   src={testimony.image}
                   alt={testimony.familyName}
@@ -87,19 +133,21 @@ export default function TestimoniesPage() {
                   }}
                 />
               </div>
-              <div style={{
-                padding: '3rem',
-                order: index % 2 === 1 ? 1 : 2
-              }}>
+              <div 
+                className="testimony-text"
+                style={{
+                  order: index % 2 === 1 ? 1 : 2
+                }}
+              >
                 <h2 style={{
-                  fontSize: '2rem',
+                  fontSize: '1.8rem',
                   color: '#5b21b6',
                   marginBottom: '0.5rem'
                 }}>
                   {testimony.title}
                 </h2>
                 <p style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1.2rem',
                   color: '#ec4899',
                   fontStyle: 'italic',
                   marginBottom: '1.5rem'
@@ -107,7 +155,7 @@ export default function TestimoniesPage() {
                   {testimony.familyName}
                 </p>
                 <p style={{
-                  fontSize: '1.1rem',
+                  fontSize: '1rem',
                   color: '#4a5568',
                   lineHeight: 1.8,
                   marginBottom: '1.5rem'
@@ -121,12 +169,13 @@ export default function TestimoniesPage() {
                   borderLeft: '4px solid #7c3aed',
                   fontStyle: 'italic',
                   color: '#5b21b6',
-                  margin: '1.5rem 0'
+                  margin: '1.5rem 0',
+                  fontSize: '0.95rem'
                 }}>
                   "{testimony.highlight}"
                 </div>
                 <p style={{
-                  fontSize: '1.1rem',
+                  fontSize: '1rem',
                   color: '#4a5568',
                   lineHeight: 1.8,
                   marginBottom: '1.5rem'
@@ -147,25 +196,26 @@ export default function TestimoniesPage() {
       </section>
 
       {/* Call to Action */}
-      <section style={{
+      <section className="cta-section" style={{
         background: 'linear-gradient(135deg, #ddd6fe 0%, #fecaca 50%, #fde68a 100%)',
-        padding: '4rem 2rem',
+        padding: '3rem 1.5rem',
         textAlign: 'center'
       }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: '2rem',
           color: '#5b21b6',
           marginBottom: '1.5rem'
         }}>
           Want to Share Your Story?
         </h2>
         <p style={{
-          fontSize: '1.2rem',
+          fontSize: '1.1rem',
           color: '#6b7280',
           marginBottom: '2rem',
           maxWidth: '700px',
           marginLeft: 'auto',
-          marginRight: 'auto'
+          marginRight: 'auto',
+          padding: '0 1rem'
         }}>
           Have you experienced Disney with purpose and rest? We'd love to hear how your family's trip went! Your story could encourage other families to do Disney differently.
         </p>
@@ -175,11 +225,11 @@ export default function TestimoniesPage() {
             display: 'inline-block',
             background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
             color: 'white',
-            padding: '1rem 2.5rem',
+            padding: '1rem 2rem',
             borderRadius: '50px',
             textDecoration: 'none',
             fontWeight: 600,
-            fontSize: '1.1rem',
+            fontSize: '1rem',
             boxShadow: '0 4px 15px rgba(124, 58, 237, 0.3)',
             transition: 'transform 0.3s'
           }}

@@ -1,49 +1,69 @@
 export default function Hero() {
   return (
-    <section id="home" style={{
+    <section style={{
       background: 'linear-gradient(135deg, #ddd6fe 0%, #fecaca 50%, #fde68a 100%)',
-      padding: '5rem 2rem',
+      padding: '3rem 1.5rem',
       textAlign: 'center'
     }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <h1 style={{
-          fontSize: '3rem',
+      <style>
+        {`
+          @media (min-width: 769px) {
+            .hero-section {
+              padding: 5rem 2rem !important;
+            }
+            .hero-title {
+              font-size: 4rem !important;
+            }
+            .hero-subtitle {
+              font-size: 1.8rem !important;
+            }
+            .hero-text {
+              font-size: 1.2rem !important;
+            }
+          }
+        `}
+      </style>
+      <div className="hero-section">
+        <h1 className="hero-title" style={{
+          fontSize: '2.5rem',
+          fontWeight: 'bold',
           color: '#5b21b6',
           marginBottom: '1rem',
-          fontWeight: 700
+          lineHeight: 1.2
         }}>
           Disney on Purpose
         </h1>
-        <p style={{
-          fontSize: '1.8rem',
+        <p className="hero-subtitle" style={{
+          fontSize: '1.3rem',
           color: '#7c3aed',
           fontStyle: 'italic',
-          marginBottom: '1.5rem'
+          marginBottom: '2rem'
         }}>
           Seeking the Kingdom in the Magic Kingdom
         </p>
-        <p style={{
-          fontSize: '1.2rem',
+        <p className="hero-text" style={{
+          fontSize: '1.1rem',
           color: '#6b7280',
-          maxWidth: '700px',
+          maxWidth: '800px',
           margin: '0 auto 2rem',
-          lineHeight: 1.8
+          lineHeight: 1.6,
+          padding: '0 1rem'
         }}>
-          Disney doesn't have to be overwhelming and exhausting. Discover how our family experiences the magic with rest, love, and faith—demonstrating the fruit of the Holy Spirit while creating intentional memories together.
+          Disney doesn't have to be draining and exhausting. Discover how to experience the magic with rest, intention, and your family at the center.
         </p>
         <a href="#about" style={{
           display: 'inline-block',
           background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
           color: 'white',
-          padding: '1rem 2.5rem',
+          padding: '1rem 2rem',
           borderRadius: '50px',
           textDecoration: 'none',
           fontWeight: 600,
-          fontSize: '1.1rem',
+          fontSize: '1rem',
           boxShadow: '0 4px 15px rgba(124, 58, 237, 0.3)',
-          transition: 'transform 0.3s, box-shadow 0.3s'
+          transition: 'transform 0.3s'
         }}>
-          Start Your Journey
+          Learn Our Approach
         </a>
       </div>
     </section>
